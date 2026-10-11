@@ -1,0 +1,17 @@
+# Template file for 'ls'
+pkgname=chmod-cli
+version=0.2.0
+revision=1
+build_style=go
+short_desc="Effortlessly generate chmod commands"
+go_import_path="github.com/Mayowa-Ojo/chmod-cli"
+go_package="github.com/Mayowa-Ojo/chmod-cli/cmd"
+maintainer="Orphaned"
+license="MIT"
+homepage="https://github.com/Mayowa-Ojo/chmod-cli"
+distfiles="${homepage}/archive/refs/tags/v${version}.tar.gz"
+checksum=65c27ed387fd9c0e1d7b917236f6388d412a4fd8ea5f1ab353dd8fcd8defa530
+
+post_install() {
+	vlicense LICENSE
+}

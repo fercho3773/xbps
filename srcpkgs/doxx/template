@@ -1,0 +1,18 @@
+# Template file for 'doxx'
+pkgname=doxx
+version=0.1.4
+revision=1
+build_style=cargo
+hostmakedepends="pkgconf libzstd-devel"
+makedepends=""
+depends="libxcb"
+short_desc="Explore .docx files from the terminal"
+maintainer="Orphaned"
+license="MIT"
+homepage="https://github.com/bgreenwell/doxx"
+distfiles="${homepage}/archive/refs/tags/v${version}.zip"
+checksum=b996c93e4015e2fb3ae1ba2fd6b0c31d5c3b7b55fe3433c6e4a70fa6e57f3ae1
+
+post_install() {
+	vlicense LICENSE
+}

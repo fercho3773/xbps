@@ -1,0 +1,25 @@
+# Template file for 'fastcompmgr'
+pkgname=fastcompmgr
+version=0.6.1
+revision=1
+build_style=gnu-makefile
+hostmakedepends="pkg-config"
+makedepends="libX11-devel
+ libXcomposite-devel
+ libXdamage-devel
+ libXfixes-devel
+ libXrender-devel"
+depends=""
+short_desc="A fast compositor for X11"
+maintainer="Orphaned <orphan@evoidlinux.org>"
+license="MIT"
+homepage="https://github.com/tycho-kirchner/fastcompmgr"
+#changelog=""
+distfiles="https://github.com/tycho-kirchner/fastcompmgr/archive/refs/tags/v0.6.1.tar.gz"
+checksum=b93b5c6ed6926e7c9419e3e620d2bf26a8f106bd55f59474e0d7d6328003192c
+
+do_install() {
+	vbin fastcompmgr
+	vman fastcompmgr.1
+	vlicense LICENSE
+}

@@ -1,0 +1,22 @@
+# Template file for 'proton-authenticator-bin'
+pkgname=proton-authenticator-bin
+version=1.1.6
+revision=1
+only_for_archs="x86_64"
+depends="gtk+3 libwebkit2gtk41 libayatana-appindicator"
+short_desc="Proton Authenticator - generador de códigos 2FA"
+maintainer="Tu Nombre <tu@email>"
+license="GPL-3.0-or-later"
+homepage="https://proton.me/authenticator"
+distfiles="https://proton.me/download/authenticator/linux/ProtonAuthenticator-${version}-1.x86_64.rpm"
+checksum=844c80851e7d2cbe41d18ab9913d5010d19459bea4c8ce773d34bf33a27a3d36
+create_wrksrc=yes
+
+do_extract() {
+	bsdtar -xf "${XBPS_SRCDISTDIR}/${pkgname}-${version}/ProtonAuthenticator-${version}-1.x86_64.rpm" \
+		-C "${wrksrc}"
+}
+
+do_install() {
+	vcopy "usr/*" usr
+}

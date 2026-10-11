@@ -1,0 +1,19 @@
+pkgname=font-blex-mono-nerd
+version=3.4.0
+revision=1
+short_desc="IBM Plex Mono patched with Nerd Fonts icons"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="OFL-1.1"
+homepage="https://github.com/ryaonasis/nerd-fonts"
+changelog="https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/changelog.md"
+distfiles="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/IBMPlexMono.tar.xz"
+checksum=95e6ecaa5dfb9a96f27a6b6edc7be396fb6df30bc311a6f7e15cad56a30051c2
+
+depends="font-util"
+font_dirs="usr/share/fonts/TTF"
+
+do_install() {
+	vmkdir ${font_dirs}
+	vcopy "BlexMonoNerdFontMono-*.ttf" ${font_dirs}
+	vlicense LICENSE.txt
+}

@@ -1,0 +1,32 @@
+pkgname=quarto-bin
+version=1.9.38
+revision=1
+archs="x86_64"
+short_desc="Open-source scientific and technical publishing system built on Pandoc"
+maintainer="Fernando <fdnh.navarro@gmail.com>"
+license="MIT"
+homepage="https://quarto.org"
+changelog="https://github.com/quarto-dev/quarto-cli/blob/v${version}/news/changelog-1.9.md"
+
+create_wrksrc=yes
+
+case "$XBPS_TARGET_MACHINE" in
+	x86_64)
+		distfiles="https://github.com/quarto-dev/quarto-cli/releases/download/v${version}/quarto-${version}-linux-x86_64.rpm"
+		checksum=e8b7e6f3e03cdb507a56009c31417b16b9b6817555a299fe06c84c59121807d6
+		;;
+	aarch64)
+		distfiles="https://github.com/quarto-dev/quarto-cli/releases/download/v${version}/quarto-${version}-linux-aarch64.rpm"
+		checksum=02b60bc404a45c50d17fc9a1330dccfcf1b447881eb4576b3f56fb7a15022832
+		;;
+esac
+
+depends="pandoc"
+hostmakedepends="rpmextract"
+
+do_install() {
+
+	vcopy "*" /
+  ln -s /opt/quarto/bin/quarto ${DESTDIR}/usr/bin/quarto
+
+}

@@ -1,0 +1,28 @@
+# Template file for 'sxcs'
+pkgname=sxcs
+version=1.2.1
+revision=1
+hostmakedepends="libX11-devel libXrender-devel"
+makedepends="libX11-devel libXrender-devel"
+depends="libX11 libXrender"
+short_desc="Color picker and magnifier for X11"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="GPL-3.0-or-later"
+homepage="https://codeberg.com/NRK/sxcs"
+distfiles="https://codeberg.com/NRK/sxcs/archive/v$version.zip"
+checksum=0ccae211556755ea046a81ac84fb96e5f42386a2901d5e9c0713a577fe093ad4
+
+do_build() {
+	cc -o sxcs sxcs.c -O3 -s -l X11 -l Xrender
+}
+
+do_install() {
+	vinstall sxcs 755 usr/bin
+	vman sxcs.1
+	vlicense LICENSE
+}
+
+post_install() {
+	vcompletion etc/zsh-completion/_sxcs zsh
+}
+

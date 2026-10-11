@@ -1,0 +1,21 @@
+# Template file for 'zsh-vi-mode'
+pkgname=zsh-vi-mode
+version=0.12.0
+revision=1
+#hostmakedepends=""
+#makedepends=""
+#depends=""
+short_desc="A better and friendly vi(vim) mode plugin for ZSH"
+maintainer="Orphan"
+license="MIT"
+homepage="https://github.com/jeffreytse/zsh-vi-mode"
+distfiles="https://github.com/jeffreytse/zsh-vi-mode/archive/refs/tags/v${version}.zip"
+checksum=c9bcc49054c61659b4e9ace7237007defbf598271a4072e566cea3d3ace38868
+
+do_install() {
+	vinstall zsh-vi-mode.plugin.zsh 644 \
+		usr/share/zsh/plugins/${pkgname}
+	vinstall zsh-vi-mode.zsh 644 \
+		usr/share/zsh/plugins/${pkgname}
+	vlicense LICENSE
+}

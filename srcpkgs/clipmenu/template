@@ -1,0 +1,26 @@
+# Template file for 'clipmenu'
+pkgname=clipmenu
+version=20260403
+revision=1
+build_style=gnu-makefile
+hostmakedepends="git"
+makedepends="libX11-devel libXfixes-devel"
+depends="clipnotify"
+short_desc="Clipboard management using dmenu"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="MIT"
+homepage="https://github.com/cdown/clipmenu/"
+
+# This commit is from april 3rd 2026, which is a more updated version than
+# version 6.2,0 from 2020
+do_extract() {
+    git clone https://github.com/cdown/clipmenu.git "${wrksrc}"
+    cd "${wrksrc}"
+    git checkout e0ec3bc6608ecc70ed17e8da76e27bf90b1e8e90
+}
+
+do_install() {
+	make PREFIX=/usr DESTDIR=${DESTDIR} install
+	vlicense LICENSE
+}
+
